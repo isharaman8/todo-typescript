@@ -1,8 +1,13 @@
+@import "../global.scss";
 .input {
 	display: flex;
 	width: 90%;
 	position: relative;
 	align-items: center;
+
+	@include mobile {
+		width: 95%;
+	}
 
 	.input_box {
 		width: 100%;
@@ -40,6 +45,48 @@
 		&:active {
 			transform: scale(0.8);
 			box-shadow: 0 0 5px black;
+		}
+	}
+}
+
+.todos {
+	display: flex;
+	justify-content: space-evenly;
+	width: 90%;
+	flex-wrap: wrap;
+
+	@include mobile {
+		width: 95%;
+	}
+
+	.todos_single {
+		display: flex;
+		width: 29.5%;
+		border-radius: 5px;
+		padding: 20px;
+		margin-top: 15px;
+		background-image: url("http://4.bp.blogspot.com/-XRYJULp8jHQ/T7GdQRKdBMI/AAAAAAAAAr8/Z5n483HTQHA/s1600/blank-old-paper-background.jpg");
+
+		@include mobile {
+			width: 100%;
+		}
+
+		.todos__single--text {
+			flex: 1;
+			padding: 5px;
+			border: none;
+			font-size: 20px;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		div {
+			.icon {
+				margin-left: 10px;
+				font-size: 25px;
+				cursor: pointer;
+			}
 		}
 	}
 }

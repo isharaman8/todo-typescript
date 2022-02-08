@@ -1,22 +1,26 @@
-import React from "react";
-import "./inputfield.scss";
+import React, { useRef } from "react";
+import "./styles.scss";
 
 interface Props {
 	todo: string;
 	setTodo: React.Dispatch<React.SetStateAction<string>>;
+	handleAdd: (e: React.FormEvent) => void;
 }
 
-const InputField: React.FC<Props> = ({ todo, setTodo }) => {
+const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
+	const inputRef = useRef<HTMLInputElement>(null);
 	return (
 		<form
-			onClick={(e) => {
-				e.preventDefault();
+			onSubmit={(e) => {
+				handleAdd(e);
+				inputRef.current?.blur();
 			}}
 			className="input"
 		>
 			<input
-				onChange={(e) => e.target.value}
 				value={todo}
+				ref={inputRef}
+				onChange={(e) => setTodo(e.target.value)}
 				type="input"
 				placeholder="Enter a task"
 				className="input_box"
