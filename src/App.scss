@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import "./global.scss";
 
 .App {
@@ -8,7 +9,7 @@
 	flex-direction: column;
 	align-items: center;
 	background-color: #2f74c0;
-	font-family: "Neucha", cursive;
+	font-family: "Pacifico", cursive;
 
 	.heading {
 		text-transform: uppercase;

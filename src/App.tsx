@@ -21,6 +21,7 @@ const App: React.FC = () => {
 
 	const onDragEnd = (result: DropResult) => {
 		const { source, destination } = result;
+		console.log(source, destination);
 		if (!destination) return;
 		if (
 			destination.droppableId === source.droppableId &&
@@ -40,9 +41,21 @@ const App: React.FC = () => {
 			complete.splice(source.index, 1);
 		}
 
+		if (
+			source.droppableId === "TodoList" &&
+			destination.droppableId === "TodosDelete"
+		) {
+			active.splice(source.index, 1);
+		} else if (
+			source.droppableId === "TodosRemove" &&
+			destination.droppableId === "TodosDelete"
+		) {
+			complete.splice(source.index, 1);
+		}
+
 		if (destination.droppableId === "TodosList") {
 			active.splice(destination.index, 0, add);
-		} else {
+		} else if (destination.droppableId === "TodosRemove") {
 			complete.splice(destination.index, 0, add);
 		}
 
@@ -53,7 +66,7 @@ const App: React.FC = () => {
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			<div className="App">
-				<span className="heading">Taskify</span>
+				<span className="heading">Todo App</span>
 				<InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
 				<TodoList
 					todos={todos}

@@ -72,6 +72,21 @@ export const TodoList: React.FC<Props> = ({
 					);
 				}}
 			</Droppable>
+
+			<Droppable droppableId={"TodosDelete"}>
+				{(provided) => {
+					return (
+						<div
+							className="delTodo"
+							ref={provided.innerRef}
+							{...provided.droppableProps}
+						>
+							<img src="assets/delete.png" alt="" />
+							{/* {provided.placeholder} */}
+						</div>
+					);
+				}}
+			</Droppable>
 		</div>
 	);
 };
