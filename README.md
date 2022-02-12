@@ -11,3 +11,5 @@
   <li>react-beautiful-dnd: Drag and Drop feature</li>
   <li>SASS: CSS preprocessor</li>
 </ul>
+
+<p>Try this app <a href="https://todo-app-ts-08.netlify.app" target="blank">HERE</a><p>
