@@ -1,7 +1,7 @@
 @import "../global.scss";
 .input {
 	display: flex;
-	width: 90%;
+	width: 95%;
 	position: relative;
 	align-items: center;
 
@@ -48,45 +48,77 @@
 		}
 	}
 }
-
-.todos {
+.container {
 	display: flex;
-	justify-content: space-evenly;
-	width: 90%;
-	flex-wrap: wrap;
+	width: 95%;
+	gap: 10px;
+	margin-top: 10px;
+	justify-content: space-between;
+	align-items: flex-start;
 
 	@include mobile {
 		width: 95%;
+		flex-direction: column;
 	}
 
-	.todos_single {
+	.todos {
 		display: flex;
-		width: 29.5%;
+		width: 47.5%;
+		padding: 15px;
+		flex-direction: column;
 		border-radius: 5px;
-		padding: 20px;
-		margin-top: 15px;
-		background-image: url("http://4.bp.blogspot.com/-XRYJULp8jHQ/T7GdQRKdBMI/AAAAAAAAAr8/Z5n483HTQHA/s1600/blank-old-paper-background.jpg");
+		background-color: #79a3d1;
 
 		@include mobile {
-			width: 100%;
+			width: 95%;
 		}
 
-		.todos__single--text {
-			flex: 1;
-			padding: 5px;
-			border: none;
-			font-size: 20px;
+		.todos__heading {
+			font-size: 30px;
+			color: white;
+		}
 
-			&:focus {
-				outline: none;
+		.todos_single {
+			display: flex;
+			border-radius: 5px;
+			padding: 20px;
+			margin-top: 15px;
+			background-image: url("http://4.bp.blogspot.com/-XRYJULp8jHQ/T7GdQRKdBMI/AAAAAAAAAr8/Z5n483HTQHA/s1600/blank-old-paper-background.jpg");
+			transition: 0.2s;
+
+			&:hover {
+				box-shadow: 0 0 5px black;
+				transform: scale(1.03);
+			}
+
+			.todos__single--text {
+				flex: 1;
+				padding: 5px;
+				border: none;
+				font-size: 20px;
+
+				&:focus {
+					outline: none;
+				}
+			}
+			div {
+				.icon {
+					margin-left: 10px;
+					font-size: 25px;
+					cursor: pointer;
+				}
 			}
 		}
-		div {
-			.icon {
-				margin-left: 10px;
-				font-size: 25px;
-				cursor: pointer;
-			}
-		}
+	}
+
+	.remove {
+		background-color: coral;
+	}
+
+	.dragactive {
+		background-color: rgb(0, 221, 236);
+	}
+	.dragcomplete {
+		background-color: rgb(255, 38, 0);
 	}
 }
